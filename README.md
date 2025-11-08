@@ -4,6 +4,14 @@
 **zk-allowance-soundness** is a minimal CLI tool that checks ERC20 **allowance** soundness for an `owner → spender` pair at a given block.  
 It’s handy for validating bridge/vault approvals, rollup agent permissions, and monitoring grant limits across EVM chains used by **Aztec**, **Zama**, and similar zk ecosystems.
 
+## What it does
+1) Connects to an EVM-compatible RPC.  
+2) Reads token metadata (name, symbol, decimals).  
+3) Queries `allowance(owner, spender)` from the ERC20.  
+4) Prints the raw and human-readable allowance.  
+5) Optionally compares against an expected value (human units).  
+6) Emits JSON for CI dashboards and exits non-zero on mismatch.
+
 ## Installation
 1) Python 3.9+  
 2) Dependencies:
