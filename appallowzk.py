@@ -119,7 +119,10 @@ def main() -> None:
     human_allow = human_amount(raw_allow, meta["decimals"])
     print(f"📦 Allowance (raw): {raw_allow}")
     print(f"💳 Allowance ({meta['symbol']}): {human_allow}")
-
+#Warn if allowance is zero
+    if raw_allow == 0:
+        print("⚠️ Warning: Allowance is 0 — the spender cannot transfer tokens.")
+        
     matched: Optional[bool] = None
     expected_raw: Optional[int] = None
     if args.expected is not None:
